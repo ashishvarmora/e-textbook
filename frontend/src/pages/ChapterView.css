@@ -1,0 +1,27 @@
+.chapter-view {
+  padding: 30px;
+}
+
+.breadcrumb {
+  margin-bottom: 20px;
+}
+
+.breadcrumb button {
+  background: transparent;
+  border: none;
+  color: #667eea;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px 10px;
+  transition: color 0.3s;
+}
+
+.breadcrumb button:hover {
+  color: #5568d3;
+  text-decoration: underline;
+}
+
+.subtitle {
+  color: #666;
+  margin: 5px 0 0 0;
+}
