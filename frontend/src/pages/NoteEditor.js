@@ -16,6 +16,7 @@ const NoteEditor = () => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [topicId]);
 
   const fetchData = async () => {
@@ -87,13 +88,19 @@ const NoteEditor = () => {
       <div className="breadcrumb">
         <button onClick={() => navigate('/')}>Subjects</button>
         <span> / </span>
-        <button onClick={() => navigate(`/subject/${topic?.chapterId?.subjectId}`)}>
-          Subject
-        </button>
+        {topic?.chapterId?.subjectId && (
+          <button onClick={() => navigate(`/subject/${topic.chapterId.subjectId}`)}>
+            Subject
+          </button>
+        )}
+        {!topic?.chapterId?.subjectId && <span>Subject</span>}
         <span> / </span>
-        <button onClick={() => navigate(`/chapter/${topic?.chapterId?._id}`)}>
-          {topic?.chapterId?.title || 'Chapter'}
-        </button>
+        {topic?.chapterId?._id && (
+          <button onClick={() => navigate(`/chapter/${topic.chapterId._id}`)}>
+            {topic.chapterId.title || 'Chapter'}
+          </button>
+        )}
+        {!topic?.chapterId?._id && <span>Chapter</span>}
         <span> / </span>
         <span>{topic?.title}</span>
       </div>

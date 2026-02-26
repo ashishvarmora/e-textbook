@@ -15,6 +15,7 @@ const TopicView = () => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapterId]);
 
   const fetchData = async () => {
@@ -69,9 +70,12 @@ const TopicView = () => {
       <div className="breadcrumb">
         <button onClick={() => navigate('/')}>Subjects</button>
         <span> / </span>
-        <button onClick={() => navigate(`/subject/${chapter?.subjectId}`)}>
-          {chapter?.subjectId?.name || 'Subject'}
-        </button>
+        {chapter?.subjectId && (
+          <button onClick={() => navigate(`/subject/${chapter.subjectId}`)}>
+            Subject
+          </button>
+        )}
+        {!chapter?.subjectId && <span>Subject</span>}
         <span> / </span>
         <span>{chapter?.title}</span>
       </div>

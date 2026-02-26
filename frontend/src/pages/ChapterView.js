@@ -15,6 +15,7 @@ const ChapterView = () => {
 
   useEffect(() => {
     fetchData();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [subjectId]);
 
   const fetchData = async () => {
